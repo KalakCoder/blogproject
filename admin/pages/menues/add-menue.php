@@ -18,7 +18,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Add features</h1>
+                            <h1>Add menues</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -35,18 +35,20 @@
                 <div class="container-fluid">
                   <?php
                   if(isset($_POST['submit'])){
-                    $title=$_POST['title']; 
-                    $description=$_POST['description']; 
-                    if(isset($_POST['submit']))
-                    
-                    if($title!="" && $description!=""){
-                      $query= "INSERT INTO features (title, description,) 
-                      VALUES('$title', '$description' )";
+                    $title=$_POST['title'];
+                    $category=$_POST['category'];
+                    $ctitle=md5($_POST['ctitle']);
+                    $cdesc=md5($_POST['cdesc']);
+                    $price=md5($_POST['price']);
+
+                    if($title!="" && $category!="" && $ctitle!="" && $cdesc!="" && $price!="" ){
+                      $query= "INSERT INTO menues (title, category, ctitle,cdesc,price) 
+                      VALUES('$title', '$category', '$ctitle', 'cdesc', 'price' )";
                       $result =mysqli_query($conn, $query);
 
                       if($result){
 
-                        echo "<meta http-equiv=\"refresh\"content=\"0;URL=manage-features.php\">";
+                        echo "<meta http-equiv=\"refresh\" content=\"0;URL=manage-menue.php\">";
                     }
                       else {
                         echo "data is not submittd";
@@ -62,16 +64,31 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="exampleInputName" class="form-label">titlt</label>
-                                    <input type="text" class="form-control" id="exampleInputName"
-                                        aria-describedby="nameHelp" name="name">
+                                    <label for="exampleInputtitle" class="form-label">title</label>
+                                    <input type="text" class="form-control" id="exampleInputtitle"
+                                        aria-describedby="nameHelp" name="title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputcategory" class="form-label">category</label>
+                                    <input type="text" class="form-control" id="exampleInputcategory"
+                                        aria-describedby="emailHelp" name="category">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="exampleInputdescription" class="form-label">description</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1"
-                                        name="text">
+                                    <label for="exampleInputctitle" class="form-label">ctitle</label>
+                                    <input type="text" class="form-control" id="exampleInputctitle"
+                                        name="ctitle">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputcdesc" class="form-label">cdesc</label>
+                                    <input type="password" class="form-control" id="exampleInputcdesc"
+                                        name="cdesc">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputprice" class="form-label">price</label>
+                                    <input type="password" class="form-control" id="exampleInputcdesc"
+                                        name="price">
                                 </div>
                             </div>
                         </div>

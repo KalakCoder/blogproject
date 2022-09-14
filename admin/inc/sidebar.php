@@ -32,8 +32,31 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-                        <li class="nav-item">
+                    <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    users
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/user/Add-user.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add User</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/user/manage-user.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage User</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                      <!-- start featurs -->
+                      <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
@@ -56,30 +79,10 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    Forms
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../../pages/user/Add-user.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Add User</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../../pages/user/manage-user.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Manage User</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
+                      <!-- end featurs -->
+                        
+                     <!-- start filemanager -->
+                     <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
@@ -102,7 +105,11 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
+                     <!-- end filemanager -->
+
+
+                      <!-- start sliders -->
+                      <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
@@ -126,7 +133,10 @@
                                 
                             </ul>
                         </li>
-                        <li class="nav-item">
+                      <!-- end sliders -->
+
+                       <!-- start about -->
+                       <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
@@ -150,6 +160,9 @@
                                 
                             </ul>
                         </li>
+                       <!-- start about -->
+
+                        <!--  start whychooseus -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-edit"></i>
@@ -174,6 +187,168 @@
                                 
                             </ul>
                         </li>
+                        <!--  end whychooseus -->
+
+                       <!-- start gallery -->
+                       <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    gallerys
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/gallerys/add-gallery.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Add gallery</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/gallerys/manage-gallery.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>manage gallery</p>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                       <!-- end gallery -->
+
+                        <!-- start chefs -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    chefs
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/chefs/add-chef.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>add chef</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/chefs/manage-chef.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage chef</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                         <!-- end chefs -->
+
+
+                         <!-- start Reserve -->
+                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    reserve
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/reserve/add-reserve.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>add reserve</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/reserve/manage-reserve.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage reserve</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                         <!-- end Reserve -->
+
+
+                         <!-- start specials -->
+                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                   specials
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/specials/add-special.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>add specials</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/specials/manage-special.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage specials</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                         <!-- end specials -->
+
+
+                         <!-- start events -->
+                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                   events
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/events/add-event.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>add events</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/events/manage-event.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage events</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                         <!-- end events -->
+
+
+                         <!-- start menues -->
+                         <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                   menues
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="../../pages/menues/add-menue.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>add menues</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../../pages/menues/manage-menue.php" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Manage menues</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                         <!-- end menues -->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

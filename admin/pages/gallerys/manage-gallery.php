@@ -29,6 +29,9 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="btn">
+        <a href="add-file.php"class="btn btn-outline-primary">Add file</a>
+      </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
@@ -40,15 +43,15 @@
                   <thead>
                   <tr>
                     <th>S.N</th>
-                    <th>name</th>
-                    <th>Password</th>
-                    <th>Email</th>
+                    <th>title</th>
+                    <th>desc</th>
+                    <th>img</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                 <?php 
-                $query ="SELECT * FROM whychooseus";
+                $query ="SELECT * FROM gallary";
                 $result= mysqli_query($conn, $query); // select all data from users table
                 $i=0;
                 
@@ -56,14 +59,12 @@
                 ?>
                 <tr>
                   <th scope="row"> <?php echo ++$i; ?></th>
-                  <td><?php echo $data['title'] ?></td>
-                  <td><?php echo $data['description'] ?></td>
-                  <td><?php echo $data['num'] ?></td>
-                  <td><?php echo $data['subtitle'] ?></td>
-                  <td><?php echo $data['subdesc'] ?></td>
+                  <td><?php echo $data['title']; ?></td>
+                  <td><img src="../../../uploads/<?php echo $data['desc']; ?>" width="100" height="100"></td>
+                  <td><?php echo $data['img']; ?></td>
                   <td>
-                    <a href="edit-chooseus.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">edit</a>
-                    <a href="../../process/deleteuer.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger">delete</a>
+                    <a href="edit-gallery.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">edit</a>
+                    <a href="../../process/delete-gallery.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger">delete</a>
                   </td>
                 </tr>
                 <?php

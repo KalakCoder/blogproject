@@ -40,15 +40,17 @@
                   <thead>
                   <tr>
                     <th>S.N</th>
-                    <th>name</th>
-                    <th>Password</th>
-                    <th>Email</th>
+                    <th>title</th>
+                    <th>category</th>
+                    <th>ctitle</th>
+                    <th>cdesc</th>
+                    <th>price</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                 <?php 
-                $query ="SELECT * FROM whychooseus";
+                $query ="SELECT * FROM users";
                 $result= mysqli_query($conn, $query); // select all data from users table
                 $i=0;
                 
@@ -57,13 +59,13 @@
                 <tr>
                   <th scope="row"> <?php echo ++$i; ?></th>
                   <td><?php echo $data['title'] ?></td>
-                  <td><?php echo $data['description'] ?></td>
-                  <td><?php echo $data['num'] ?></td>
-                  <td><?php echo $data['subtitle'] ?></td>
-                  <td><?php echo $data['subdesc'] ?></td>
+                  <td><?php echo $data['category'] ?></td>
+                  <td><?php echo $data['ctitle'] ?></td>
+                  <td><?php echo $data['cdesc'] ?></td>
+                  <td><?php echo $data['price'] ?></td>
                   <td>
-                    <a href="edit-chooseus.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">edit</a>
-                    <a href="../../process/deleteuer.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger">delete</a>
+                    <a href="edit-menue.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">edit</a>
+                    <a href="../../process/delete-menue.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger">delete</a>
                   </td>
                 </tr>
                 <?php
@@ -72,11 +74,13 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th>S.N</th>
-                  <th>name</th>
-                  <th>Password</th>
-                  <th>Email</th>
-                  <th>Action</th>
+                <th>S.N</th>
+                    <th>title</th>
+                    <th>category</th>
+                    <th>ctitle</th>
+                    <th>cdesc</th>
+                    <th>price</th>
+                    <th>Action</th>
                 </tr>
                
              

@@ -16,13 +16,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="pb-3">Manage about </h1>
-                            <a href="add-sliders.php" class="btn btn-primary"> Add $aboutus</a>
+                            <h1 class="pb-3">Manage users </h1>
+                            <a href="add-special.php" class="btn btn-primary"> Add Specials</a>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Manage boutus</li>
+                                <li class="breadcrumb-item active">Manage sliders</li>
                             </ol>
                         </div>
                     </div>
@@ -45,14 +45,18 @@
                                             <tr>
                                                 <th>S.N</th>
                                                 <th>title</th>
-                                                <th>video</th>
+                                                <th>desc</th>
+                                                <th>sub-title</th>
+                                                <th>sub-desc</th>
+                                                <th>img</th>
+                                                <th>dish</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                             <?php 
-                                            $query = "SELECT * FROM aboutus"; 
+                                            $query = "SELECT * FROM specials"; 
                                             $result = mysqli_query ($conn, $query); //Select all data from users
                                             $i=0;
                                             while($data=mysqli_fetch_array($result)){
@@ -61,23 +65,39 @@
                                             <tr>
                                                 <th scope="row"> <?php echo ++$i; ?></th>
                                                 <td><?php echo $data['title'];?></td>
-                                                <td><img src="../../../uploads/<?php echo $data['video'];?>" width="100" height="100"
-                                                        alt=""></td>
+                                                <td><?php echo $data['desc'];?></td>
+                                                <td><?php echo $data['sub-title'];?></td>
+                                                <td><?php echo $data['sub-desc'];?></td>
+                                                <td><?php echo $data['img'];?></td>
+                                                <td><?php echo $data['dish'];?></td>
+                                                <td><img src="../../../uploads/<?php echo $data['img'];?>" width="100"
+                                                        height="100" alt=""></td>
                                                 <td>
-                                                    <a href="edit-aboutus.php?id=<?php echo $data['id']; ?>"
+                                                    <a href="edit-special.php?id=<?php echo $data['id']; ?>"
                                                         class="btn btn-sm btn-primary"> Edit</a>
-                                                    <a href="../../process/delete-about.php?id=<?php echo $data['id']; ?>"
+                                                    <a href="../../process/delete-special.php?id=<?php echo $data['id']; ?>"
                                                         class="btn btn-sm btn-danger"> Delete</a>
+
+
                                                 </td>
+
                                             </tr>
                                             <?php
                                         }
+
+                                            
+                                            
                                             ?>
+
                                         <tfoot>
                                             <tr>
                                                 <th>S.N</th>
                                                 <th>title</th>
-                                                <th>Image</th>
+                                                <th>esc</th>
+                                                <th>sub-title</th>
+                                                <th>sub-desc</th>
+                                                <th>img</th>
+                                                <th>dish</th>
                                                 <th>Action</th>
                                             </tr>
                                         </tfoot>

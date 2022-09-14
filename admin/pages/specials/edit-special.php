@@ -15,7 +15,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Add aboutus </h1>
+                            <h1>Add sliders </h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -33,28 +33,40 @@
                 <div class="container">
                     <div class="form">
                         <h5 class="py-5">Task Management system</h5>
+                    <?php
+                    if(isset($_GET['id'])){
+                        $id=$_GET['id'];
 
+                        $select_data="SELECT * FROM events where id=$id";
+                        $select_result=mysqli_query($conn, $select_data);
+                        $data=$select_result->fetch_assoc();
+                    }
+
+                    ?>
                         <?php 
                     if(isset($_POST['submit'])){
-                        $video= $_POST['video'];
                         $title= $_POST['title'];
-                        $description= $_POST['description'];
-                        if($title!="" && $description!=""){
-                            $aboutus="INSERT INTO aboutus (title, description, video) 
-                            VALUES ('$title', '$description', '$video' )";
-                            $aboutus_result=mysqli_query($conn, $aboutus);
-                            if($aboutus_result){
+                        $img= $_POST['img'];
+                        $sub-title= $_POST['sub-title'];
+                        $price= $_POST['price'];
+                        $desc= $_POST['desc'];
+                        $bg-img= $_POST['bg-img'];
+
+                        if($title!="" && $img!="" && $sub-title!="" && $price!="" && $desc!="" && $bg-img!=""){
+                            $sliders="UPDATE events SET title='$title', img='$img', sub-title='$sub-title', price='$price', desc= '$desc'='bg-img= $bg-img' where id=$id";
+                            $events_result=mysqli_query($conn, $events);
+                            if($events_result){
                                 ?>
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             Your data are submitted
                             <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                         </div>
                         <?php
-                            echo "<meta http-equiv='refresh' content='0; URL=manage-aboutus.php'>";
+                            echo "<meta http-equiv='refresh' content='0; URL=manage-special.php'>";
 
                             }
                             else{
-                                echo "Error, Data is not submitted";
+                                echo "Error";
                             }
                         }
                         else{
@@ -72,9 +84,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="exampleInputUsername" class="form-label">Title</label>
-                                        <input type="text" class="form-control" id="exampleInputUsername"
-                                            aria-describedby="userHelp" name="title">
+                                        <label for="exampleInputtitle" class="form-label">Title</label>
+                                        <input type="text" class="form-control" id="exampleInputtitle"
+                                            aria-describedby="userHelp" name="title" value="<?php echo $data['title'] ;?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputimg" class="form-label">img</label>
+                                        <input type="text" class="form-control" id="exampleInputimg"
+                                            aria-describedby="userHelp" name="img" value="<?php echo $data['img'] ;?>">
                                     </div>
 
                                     <!-- Modal -->
@@ -84,7 +101,7 @@
                                             <div class="modal-dialog modal-m" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Choose video</h5>
+                                                        <h5 class="modal-title">Choose Image</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
@@ -95,7 +112,7 @@
                                                             <div class="row">
 
                                                                 <style>
-                                                                [type=radio]:checked+video {
+                                                                [type=radio]:checked+img {
                                                                     outline: 2px solid #f00;
                                                                 }
                                                                 </style>
@@ -103,15 +120,14 @@
                                                                 <?php
                                                                 $select_query = "SELECT * FROM filemanager";
                                                                 $select_result = mysqli_query($conn, $select_query);
-                                                                
                                                                 $i = 0;
                                                                 while ($data_select = mysqli_fetch_array($select_result)) {
                                                                     $i++;
                                                                 ?>
                                                                 <label>
-                                                                    <input type="radio" name="video " 
+                                                                    <input type="radio" name="img" 
                                                                         value="<?php echo $data_select['filelink']; ?> " />
-                                                                    <video src="<?php echo "../../../uploads/" . $data_select['filelink']; ?>"
+                                                                    <img src="<?php echo "../../../uploads/" . $data_select['filelink']; ?>"
                                                                         alt="" height="100px;" width="100px;"
                                                                         style="margin-right:20px;">
                                                                 </label>
@@ -136,14 +152,14 @@
                                     <!-- Bootstrap modal end -->
 
                                     <div class="form-group col-5 mb-0">
-                                        <label class="col-form-label">video</label>
+                                        <label class="col-form-label">Image</label>
                                     </div>
 
                                     <div class="input-group mb-5 col-12">
-                                        <input id="imagebox" type="text" class="form-control" name="video" disabled>
+                                        <input id="imagebox" type="text" class="form-control" name="img" value="<?php echo $data['img'] ;?>" disabled>
                                         <div class="input-group-append">
                                             <button type="button" class="btn-primary" data-toggle="modal"
-                                                data-target="#modelId1">video
+                                                data-target="#modelId1">Choose Image
                                             </button>
                                         </div>
                                     </div>
@@ -151,19 +167,31 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="exampleInputUsername" class="form-label">Description</label>
-                                        <input type="text" class="form-control" id="exampleInputUsername"
-                                            aria-describedby="userHelp" name="description">
-                                            <!-- <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea> -->
+                                        <label for="exampleInputsubtitle" class="form-label">sub-title</label>
+                                        <input type="text" class="form-control" id="exampleInputsub-title"
+                                            aria-describedby="userHelp" name="sub-title" value="<?php echo $data['sub-title'] ;?>">
                                     </div>
-                                    
                                     <div class="mb-3">
-                                        <label for="exampleInputUsername" class="form-label">title</label>
-                                        <input type="text" class="form-control" id="exampleInputUsername"
-                                            aria-describedby="userHelp" name="btn2">
+                                        <label for="exampleInputprice" class="form-label">price</label>
+                                        <input type="text" class="form-control" id="exampleInputprice"
+                                            aria-priceribedby="userHelp" name="price" value="<?php echo $data['price'] ;?>">
+                                    </div>
+                                   
+                                    <div class="mb-3">
+                                        <label for="exampleInputdesc" class="form-label">desc</label>
+                                        <input type="text" class="form-control" id="exampleInputdesc"
+                                            aria-describedby="userHelp" name="desc" value="<?php echo $data['desc'] ;?>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputbg-img" class="form-label">bg-img</label>
+                                        <input type="text" class="form-control" id="exampleInputbg-img"
+                                            aria-describedby="userHelp" name="bg-img" value="<?php echo $data['bg-img'] ;?>">
                                     </div>
                                 </div>
                             </div>
+
+
+
                             <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                         </form>
                     </div>
@@ -171,7 +199,7 @@
             </section>
             <script>
             function firstFunction() {
-                var selected_option1 = document.querySelector('input[name=video]:checked').value;
+                var selected_option1 = document.querySelector('input[name=img]:checked').value;
                 document.getElementById('imagebox').value = selected_option1;
             }
             </script>

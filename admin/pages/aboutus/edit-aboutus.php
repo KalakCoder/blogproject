@@ -147,7 +147,7 @@
                                     </div>
 
                                     <div class="input-group mb-5 col-12">
-                                        <input id="imagebox" type="text" class="form-control" name="img" value="<?php echo $data['img'] ;?>" disabled>
+                                        <input id="imagebox" type="img" class="form-control" name="img" value="<?php echo $data['img'] ;?>" disabled>
                                         <div class="input-group-append">
                                             <button type="button" class="btn-primary" data-toggle="modal"
                                                 data-target="#modelId1">Choose video

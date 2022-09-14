@@ -41,14 +41,18 @@
                   <tr>
                     <th>S.N</th>
                     <th>name</th>
-                    <th>Password</th>
                     <th>Email</th>
+                    <th>phone</th>
+                    <th>date</th>
+                    <th>time</th>
+                    <th>people</th>
+                    <th>messae</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
                 <?php 
-                $query ="SELECT * FROM whychooseus";
+                $query ="SELECT * FROM reserve";
                 $result= mysqli_query($conn, $query); // select all data from users table
                 $i=0;
                 
@@ -56,14 +60,16 @@
                 ?>
                 <tr>
                   <th scope="row"> <?php echo ++$i; ?></th>
-                  <td><?php echo $data['title'] ?></td>
-                  <td><?php echo $data['description'] ?></td>
-                  <td><?php echo $data['num'] ?></td>
-                  <td><?php echo $data['subtitle'] ?></td>
-                  <td><?php echo $data['subdesc'] ?></td>
+                  <td><?php echo $data['name'] ?></td>
+                  <td><?php echo $data['email'] ?></td>
+                  <td><?php echo $data['phone'] ?></td>
+                  <td><?php echo $data['date'] ?></td>
+                  <td><?php echo $data['time'] ?></td>
+                  <td><?php echo $data['people'] ?></td>
+                  <td><?php echo $data['massage'] ?></td>
                   <td>
-                    <a href="edit-chooseus.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">edit</a>
-                    <a href="../../process/deleteuer.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger">delete</a>
+                    <a href="edit-reserve.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-primary">edit</a>
+                    <a href="../../process/delete-reserve.php?id=<?php echo $data['id'];?>" class="btn btn-sm btn-danger">delete</a>
                   </td>
                 </tr>
                 <?php
@@ -72,11 +78,15 @@
               </tbody>
               <tfoot>
                 <tr>
-                  <th>S.N</th>
-                  <th>name</th>
-                  <th>Password</th>
-                  <th>Email</th>
-                  <th>Action</th>
+                <th>S.N</th>
+                    <th>name</th>
+                    <th>Email</th>
+                    <th>phone</th>
+                    <th>date</th>
+                    <th>time</th>
+                    <th>people</th>
+                    <th>messae</th>
+                    <th>Action</th>
                 </tr>
                
              

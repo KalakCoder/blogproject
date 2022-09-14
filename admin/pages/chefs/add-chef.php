@@ -15,12 +15,12 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1>Add sliders </h1>
+                                <h1>Add chefs </h1>
                             </div>
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active">Add file</li>
+                                    <li class="breadcrumb-item active">Add chef</li>
                                 </ol>
                             </div>
                         </div>
@@ -37,22 +37,26 @@
                             <?php 
                         if(isset($_POST['submit'])){
                             $title= $_POST['title'];
-                            $description= $_POST['description'];
+                            $desc= $_POST['desc'];
                             $img= $_POST['img'];
-                            $btn1= $_POST['btn1'];
-                            $btn2= $_POST['btn2'];
-                            if($title!="" && $description!=""){
-                                $sliders="INSERT INTO sliders (title, description, img, btn1, btn2) 
-                                VALUES ('$title', '$description', '$img' ,'$btn1', '$btn2')";
-                                $sliders_result=mysqli_query($conn, $sliders);
-                                if($sliders_result){
+                            $name= $_POST['name'];
+                            $post= $_POST['post'];
+                            $fb_link= $_POST['fb_link'];
+                            $tw_link= $_POST['tw_link'];
+                            $insta_link= $_POST['insta_link'];
+                            $linkedin_link= $_POST['linkedin_link'];
+                            if($title!="" && $desc!="" && $img!="" && $name!="" && $post!="" && $fb_link!="" && $tw_link="" && $insta_link="" &&  $linkedin_link!=""){
+                                $chefs="INSERT INTO chefs (title, desc, img, name, post,fb_link,tw_link,insta_link,linkedin_link) 
+                                VALUES ('$title', '$desc', '$img' ,'$name', '$post' '$fb_link' '$tw_link' '$insta_link' '$linkedin_link')";
+                                $chefs_result=mysqli_query($conn, $chefs);
+                                if($chefs_result){
                                     ?>
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 Your data are submitted
                                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                             </div>
                             <?php
-                                echo "<meta http-equiv='refresh' content='0; URL=manage-sliders.php'>";
+                                echo "<meta http-equiv='refresh' content='0; URL=manage-chef.php'>";
 
                                 }
                                 else{
@@ -77,6 +81,23 @@
                                             <label for="exampleInputUsername" class="form-label">Title</label>
                                             <input type="text" class="form-control" id="exampleInputUsername"
                                                 aria-describedby="userHelp" name="title">
+
+                                        </div>
+                                      
+                                        <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">img</label>
+                                            <input type="img" class="form-control" id="exampleInputUsername"
+                                                aria-describedby="userHelp" name="btn2">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">name</label>
+                                            <input type="name" class="form-control" id="exampleInputUsername"
+                                                aria-describedby="userHelp" name="name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">post</label>
+                                            <input type="name" class="form-control" id="exampleInputUsername"
+                                                aria-describedby="userHelp" name="post">
                                         </div>
 
                                         <!-- Modal -->
@@ -86,7 +107,7 @@
                                                 <div class="modal-dialog modal-m" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Choose Image</h5>
+                                                            <h5 class="modal-title">Choose chefs</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
@@ -152,20 +173,35 @@
                                         <!-- model -->
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Description</label>
+                                        <!-- <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">title</label>
                                             <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="description">
+                                                aria-describedby="userHelp" name="title">
+                                        </div> -->
+                                        <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">fb_link</label>
+                                            <input type="text" class="form-control" id="exampleInputUsername"
+                                                aria-describedby="userHelp" name="name">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Button 1</label>
+                                            <label for="exampleInputUsername" class="form-label">tw_link</label>
                                             <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="btn1">
+                                                aria-describedby="userHelp" name="name">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Button 2</label>
+                                            <label for="exampleInputUsername" class="form-label">insta_link</label>
                                             <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="btn2">
+                                                aria-describedby="userHelp" name="name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">linkedin_link</label>
+                                            <input type="text" class="form-control" id="exampleInputUsername"
+                                                aria-describedby="userHelp" name="name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputUsername" class="form-label">desc</label>
+                                            <input type="text" class="form-control" id="exampleInputUsername"
+                                                aria-describedby="userHelp" name="desc">
                                         </div>
                                     </div>
                                 </div>

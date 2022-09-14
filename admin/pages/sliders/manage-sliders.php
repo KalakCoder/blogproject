@@ -66,7 +66,7 @@
                                                 <td>
                                                     <a href="edit-sliders.php?id=<?php echo $data['id']; ?>"
                                                         class="btn btn-sm btn-primary"> Edit</a>
-                                                    <a href="../../process/delete-sliders.php?id=<?php echo $data['id']; ?>"
+                                                    <a href="../../process/delete-slider.php?id=<?php echo $data['id']; ?>"
                                                         class="btn btn-sm btn-danger"> Delete</a>
 
 

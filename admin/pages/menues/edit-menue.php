@@ -9,7 +9,7 @@
 
         <!-- Main Sidebar Container -->
         <?php include ("../../inc/sidebar.php") ?>
-    
+
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -18,7 +18,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Add chooseus</h1>
+                            <h1>Add menues</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -33,22 +33,32 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+                <?php 
+                if(isset($_GET['id']))
+                $id =$_GET['id'];
+    
+                $query1="SELECT *from users where id=$id";
+                $result1= mysqli_query($conn, $query1); 
+                // fetch a row data / single row data 
+                $data=$result1->fetch_assoc();
+                
+                ?>
+
                   <?php
                   if(isset($_POST['submit'])){
                     $title=$_POST['title'];
-                    $description=$_POST['description'];
-                    $num=$_POST['num'];
-                    $subtitle=$_POST['subtitle'];
-                    $subdesc=$_POST['subdesc'];
-                    if($title!="" && $description!="" && $num!="" && $subtitle!="" && $subdesc!=""){
-                      $query= "INSERT INTO whychooseus (title, description, num,subtitle,subdesc) 
-                      VALUES('$title', '$description', '$num', '$subtitle','$subdesc')";
-                      echo $query;
-                      $result =mysqli_query($conn, $query);
+                    $category=$_POST['category'];
+                    $ctitle=$_POST['ctitle'];
+                    $cdesc=$_POST['cdesc'];
+                    $price=$_POST['price'];
+
+                    if($title!="" && $category!="" &&  $ctitle!=&& $cdesc!="" && $price!=""){
+                     $query ="UPDATE menues SET title='$title', category='$category', ctitle='$ctitle' ,cdesc='$cdesc',price='$price' where id=$id";
+                     $result= mysqli_query($conn, $query); // connect database and query
 
                       if($result){
 
-                        echo "<meta http-equiv=\"refresh\" content=\"0;URL=manage-chooseus.php\">";
+                        echo "<meta http-equiv=\"refresh\" content=\"0;URL=manage-meune.php\">";
                     }
                       else {
                         echo "data is not submittd";
@@ -60,35 +70,35 @@
                     }
                   }
                   ?>
-                    <form method="POST" action="#" enctype="multipart/form-data">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="exampleInputtitlt" class="form-label">Title</label>
-                                    <input type="text" class="form-control" id="exampleInputName"
-                                        aria-describedby="nameHelp" name="title">
+                                    <label for="exampleInputtitle" class="form-label">title</label>
+                                    <input type="text" class="form-control" id="exampleInputtitle"
+                                        aria-describedby="nameHelp" name="title"value="<?php echo  $data['title']; ?>">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">description</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" name="description">
+                                    <label for="exampleInputcategory" class="form-label">category</label>
+                                    <input type="category" class="form-control" id="exampleInputcategory"
+                                        aria-describedby="emailHelp" name="category"value="<?php echo  $data['category']; ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Num</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1"
-                                        name="num">
+                                    <label for="exampleInputctitle" class="form-label">ctitle</label>
+                                    <input type="password" class="form-control" id="exampleInputctitle"
+                                        name="ctitle"value="<?php echo  $data['ctitle']; ?>">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">subtitle</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1"
-                                        name="subtitle">
-                                </div>  
+                                    <label for="exampleInputcdesc" class="form-label">cdesc</label>
+                                    <input type="cdesc" class="form-control" id="exampleInputcdesc"
+                                        name="cdesc"value="<?php echo  $data['cdesc']; ?>">
+                                </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">subdesc</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1"
-                                        name="subdesc">
+                                    <label for="exampleInputprice" class="form-label">price</label>
+                                    <input type="price" class="form-control" id="exampleInputprice"
+                                        name="price"value="<?php echo  $data['price']; ?>">
                                 </div>
                             </div>
                         </div>

@@ -44,7 +44,6 @@
                     <th>description</th>
                   <th>Action</th>
 
-                  </tr>
                   </thead>
                   <tbody>
                 <?php 

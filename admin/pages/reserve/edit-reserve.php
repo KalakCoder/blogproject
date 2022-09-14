@@ -37,7 +37,7 @@
                 if(isset($_GET['id']))
                 $id =$_GET['id'];
     
-                $query1="SELECT *from filemanager where id=$id";
+                $query1="SELECT *from reserve where id=$id";
                 $result1= mysqli_query($conn, $query1); 
                 // fetch a row data / single row data 
                 $data=$result1->fetch_assoc();
@@ -48,15 +48,19 @@
                   if(isset($_POST['submit'])){
                     $name=$_POST['name'];
                     $email=$_POST['email'];
-                    $password=md5($_POST['password']);
+                    $phone=$_POST['phone'];
+                    $date=$_POST['date'];
+                    $time=$_POST['time'];
+                    $people=$_POST['people'];
+                    $message=$_POST['message'];
 
-                    if($name!="" && $email!="" && $password!=""){
-                     $query ="UPDATE filemanager SET name='$name', email='$email', password='$password' where id=$id";
+                    if($name!="" && $email!="" && $phone!="" && $date!="" && $time!="" && $people!="" && $message!=""){
+                     $query ="UPDATE reserve SET name='$name', email='$email', phone='$phone'='$data'='$time'='people' ='message' where id=$id";
                      $result= mysqli_query($conn, $query); // connect database and query
 
                       if($result){
 
-                        echo "<meta http-equiv=\"refresh\" content=\"0;URL=manage-file.php\">";
+                        echo "<meta http-equiv=\"refresh\" content=\"0;URL=manage-reserve.php\">";
                     }
                       else {
                         echo "data is not submittd";
@@ -77,16 +81,38 @@
                                         aria-describedby="nameHelp" name="name"value="<?php echo  $data['name']; ?>">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">filelink</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp" name="email"value="<?php echo  $data['filelink']; ?>">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                        aria-describedby="emailHelp" name="email"value="<?php echo  $data['email']; ?>">
+                                        
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputdate" class="form-label">date</label>
+                                    <input type="date" class="form-control" id="exampleInputdate1"
+                                        name="date"value="<?php echo  $data['date']; ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">type</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1"
-                                        name="password"value="<?php echo  $data['type']; ?>">
+                                    <label for="exampleInputPassword1" class="form-label">phone</label>
+                                    <input type="phone" class="form-control" id="exampleInputphone1"
+                                        name="phone"value="<?php echo  $data['phone']; ?>">
+                                </div>
+                             
+                                <div class="mb-3">
+                                    <label for="exampleInputtime" class="form-label">time</label>
+                                    <input type="time" class="form-control" id="exampleInputtime"
+                                        name="time"value="<?php echo  $data['time']; ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputtime" class="form-label">people</label>
+                                    <input type="people" class="form-control" id="exampleInputpeople"
+                                        name="people"value="<?php echo  $data['people']; ?>">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputtime" class="form-label">message</label>
+                                    <input type="message" class="form-control" id="exampleInputmessage"
+                                        name="message"value="<?php echo  $data['message']; ?>">
                                 </div>
                             </div>
                         </div>
@@ -99,5 +125,4 @@
             </section>
             <!-- /.content -->
         </div>
-      
         <!-- /.content-wrapper -->

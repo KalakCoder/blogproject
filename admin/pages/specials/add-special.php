@@ -37,22 +37,23 @@
                             <?php 
                         if(isset($_POST['submit'])){
                             $title= $_POST['title'];
-                            $description= $_POST['description'];
+                            $desc= $_POST['desc'];
+                            $sub-title= $_POST['sub-title'];
+                            $sub-desc= $_POST['sub-desc'];
                             $img= $_POST['img'];
-                            $btn1= $_POST['btn1'];
-                            $btn2= $_POST['btn2'];
-                            if($title!="" && $description!=""){
-                                $sliders="INSERT INTO sliders (title, description, img, btn1, btn2) 
-                                VALUES ('$title', '$description', '$img' ,'$btn1', '$btn2')";
-                                $sliders_result=mysqli_query($conn, $sliders);
-                                if($sliders_result){
+                            $dish= $_POST['dish'];
+                            if($title!="" && $desc!="" && $sub-title!="" && $sub-desc!="" && $img!="" && $dish!=""){
+                                $specials="INSERT INTO specials (title, desc, sub-title, sub-desc, img,sidh) 
+                                VALUES ('$title', '$desc', '$sub-title' ,'$sub-desc', '$img,dish')";
+                                $specials_result=mysqli_query($conn, $specials);
+                                if($specials_result){
                                     ?>
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 Your data are submitted
                                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                             </div>
                             <?php
-                                echo "<meta http-equiv='refresh' content='0; URL=manage-sliders.php'>";
+                                echo "<meta http-equiv='refresh' content='0; URL=manage-special.php'>";
 
                                 }
                                 else{
@@ -74,9 +75,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Title</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
+                                            <label for="exampleInputtitle" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="exampleInputtitle"
                                                 aria-describedby="userHelp" name="title">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputsub-desc" class="form-label">sub-desc</label>
+                                            <input type="text" class="form-control" id="exampleInputusb-desc"
+                                                aria-describedby="userHelp" name="sub-desc">
                                         </div>
 
                                         <!-- Modal -->
@@ -153,19 +159,25 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Description</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="description">
+                                            <label for="exampleInputdesc" class="form-label">desc</label>
+                                            <input type="text" class="form-control" id="exampleInputdesc"
+                                                aria-describedby="userHelp" name="desc">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Button 1</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="btn1">
+                                            <label for="exampleInputsub-title" class="form-label">sub-title</label>
+                                            <input type="text" class="form-control" id="exampleInputsub-titlt"
+                                                aria-describedby="userHelp" name="sub-title">
+                                        </div>
+                                      
+                                        <div class="mb-3">
+                                            <label for="exampleInputim" class="form-label">img</label>
+                                            <input type="text" class="form-control" id="exampleInputimg"
+                                                aria-describedby="userHelp" name="img">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Button 2</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="btn2">
+                                            <label for="exampleInputdish" class="form-label">dish</label>
+                                            <input type="text" class="form-control" id="exampleInputdish"
+                                                aria-describedby="userHelp" name="dish">
                                         </div>
                                     </div>
                                 </div>

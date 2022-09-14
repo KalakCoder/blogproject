@@ -37,22 +37,23 @@
                             <?php 
                         if(isset($_POST['submit'])){
                             $title= $_POST['title'];
-                            $description= $_POST['description'];
                             $img= $_POST['img'];
-                            $btn1= $_POST['btn1'];
-                            $btn2= $_POST['btn2'];
-                            if($title!="" && $description!=""){
-                                $sliders="INSERT INTO sliders (title, description, img, btn1, btn2) 
-                                VALUES ('$title', '$description', '$img' ,'$btn1', '$btn2')";
-                                $sliders_result=mysqli_query($conn, $sliders);
-                                if($sliders_result){
+                            $sub-title= $_POST['sub-title'];
+                            $price= $_POST['price'];
+                            $desc= $_POST['desc'];
+                            $bg-img= $_POST['bg-img'];
+                            if($title!="" && $img!="" && $sub-title!="" && $price!="" && $desc!="" && $bg-img!=""){
+                                $events="INSERT INTO events (title, img, sub-title, price, desc,bg-img) 
+                                VALUES ('$title', '$img', '$sub-title' ,'$price', '$img,$bg-img')";
+                                $events_result=mysqli_query($conn, $events);
+                                if($events_result){
                                     ?>
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 Your data are submitted
                                 <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
                             </div>
                             <?php
-                                echo "<meta http-equiv='refresh' content='0; URL=manage-sliders.php'>";
+                                echo "<meta http-equiv='refresh' content='0; URL=manage-event.php'>";
 
                                 }
                                 else{
@@ -74,9 +75,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Title</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
+                                            <label for="exampleInputtitle" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="exampleInputtitle"
                                                 aria-describedby="userHelp" name="title">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputimg" class="form-label">img</label>
+                                            <input type="text" class="form-control" id="exampleInputimgc"
+                                                aria-describedby="userHelp" name="img">
                                         </div>
 
                                         <!-- Modal -->
@@ -153,20 +159,27 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Description</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="description">
+                                            <label for="exampleInputsub-title" class="form-label">sub-title</label>
+                                            <input type="text" class="form-control" id="exampleInputsub-titlt"
+                                            aria-describedby="userHelp" name="sub-title">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Button 1</label>
-                                            <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="btn1">
+                                            <label for="exampleInputprice" class="form-label">price</label>
+                                            <input type="text" class="form-control" id="exampleInputprice"
+                                                aria-describedby="userHelp" name="price">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInputUsername" class="form-label">Button 2</label>
+                                            <label for="exampleInputdesc" class="form-label">desc</label>
                                             <input type="text" class="form-control" id="exampleInputUsername"
-                                                aria-describedby="userHelp" name="btn2">
+                                                aria-describedby="userHelp" name="desc">
                                         </div>
+                                      
+                                        <div class="mb-3">
+                                            <label for="exampleInputbg-img" class="form-label">bg-img</label>
+                                            <input type="text" class="form-control" id="exampleInputusb-img"
+                                                aria-describedby="userHelp" name="bg-img">
+                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>

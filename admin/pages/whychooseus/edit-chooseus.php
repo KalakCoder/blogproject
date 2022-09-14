@@ -40,7 +40,7 @@
                     $num=$_POST['num'];
                     $subtitle=$_POST['subtitle'];
                     $subdesc=$_POST['subdesc'];
-                    if($title!="" && $description!="" && $num!="" && $subtitle!="" && $subdesc!="" &&){
+                    if($title!="" && $description!="" && $num!="" && $subtitle!="" && $subdesc!="" ){
                       $query= "INSERT INTO whychooseus (title, description, num,subtitle,subdesc) 
                       VALUES('$title', '$description', '$num')";
                       $result =mysqli_query($conn, $query);
